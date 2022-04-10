@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BerrasBio.Models.Display>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body class="index">
+    <h4>Movies Today @DateTime.Now.ToShortDateString()</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Movie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartingTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salon.TotalSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SeatsLeft)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Movie.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salon.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartingTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salon.TotalSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SeatsLeft)
+                    </td>
+                    <td>
+                        @{var nrOfSeats = item.SeatsLeft;}
+                        @if (nrOfSeats > 0)
+                        {
+                            <a asp-action="Bookings" asp-route-id="@item.ID" class="btn btn-secondary">Book ticket</a>
+                        }
+                        else 
+                        {
+                            <a class="btn btn-danger">Booked</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

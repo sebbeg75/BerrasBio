@@ -1,0 +1,45 @@
+﻿@model BerrasBio.Models.Display
+
+@{
+    ViewData["Title"] = "Booked";
+}
+
+<body class="booked">
+    <h4>Confirm Booking - @ViewData["DateToday"]</h4>
+    <hr />
+
+    <div>
+        <h4>@Html.DisplayFor(model => model.Movie.Title)</h4>
+        <dl class="dl-horizontal">
+            <dt>
+                Start
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StartingTime)
+            </dd>
+            <dt>
+                Salon
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SalonID)
+            </dd>
+            <dt>
+                Tickets
+            </dt>
+            <dd>
+                @ViewBag.NrOfTickets
+            </dd>
+            <dt>
+                Total Price
+            </dt>
+            <dd>
+                @ViewData["TotalPrice"] Sek
+            </dd>
+        </dl>
+
+        <hr />
+        <h3>Thank you, Enjoy the movie!</h3>
+        <br>
+        <hr />
+    </div>
+</body>

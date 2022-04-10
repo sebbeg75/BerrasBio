@@ -1,0 +1,41 @@
+﻿body {
+    font-family: Verdana;
+} *{
+      margin:0;
+      padding:0;
+  }
+
+.home {
+    background-image: url("/images/retro_banner.jpg");
+}
+
+.index {
+    background-color: lightgoldenrodyellow;
+}
+
+.details {
+    background-color: lightcyan;
+}
+
+.bookings {
+    background-color: lightsteelblue;
+}
+
+.booked {
+    background-color: lightpink;
+}
+
+footer {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    color: white;
+    height: 10vh;
+    bottom: 0;
+}
+
+footer h6 {
+    position:absolute;
+    left:45%;
+    padding-top: 25px;
+}
